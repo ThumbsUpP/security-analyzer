@@ -1,6 +1,6 @@
 # 🔐 security-analyzer
 
-A **pi skill** that analyzes code repositories — especially [pi skills](https://github.com/badlogic/pi-skills) — for security threats, malicious patterns, and unsafe practices **before** you install or run them.
+A security scanner that analyzes code repositories — especially **agent skills** and **coding harness extensions** — for security threats, malicious patterns, and unsafe practices **before** you install or run them.
 
 > ⚠️ **Never blindly trust code from the internet.** This tool helps you make informed decisions.
 
@@ -9,17 +9,18 @@ A **pi skill** that analyzes code repositories — especially [pi skills](https:
 ## 🚀 Quick Start
 
 ```bash
-# Clone into your pi skills directory
-gh repo clone ThumbsUpP/security-analyzer ~/.pi/skills/security-analyzer
+# Clone the repository
+git clone https://github.com/ThumbsUpP/security-analyzer
+cd security-analyzer
 
 # Analyze a remote repository
-~/.pi/skills/security-analyzer/scripts/analyze.sh https://github.com/user/suspicious-skill
+./scripts/analyze.sh https://github.com/user/suspicious-repo
 
 # Or a local path
-~/.pi/skills/security-analyzer/scripts/analyze.sh /path/to/skill --deep
+./scripts/analyze.sh /path/to/local/repo --deep
 
 # JSON output for programmatic use
-~/.pi/skills/security-analyzer/scripts/analyze.sh https://github.com/user/skill --json
+./scripts/analyze.sh https://github.com/user/repo --json
 ```
 
 ---
@@ -58,8 +59,8 @@ gh repo clone ThumbsUpP/security-analyzer ~/.pi/skills/security-analyzer
 # Deep scan with JSON output
 ./scripts/analyze.sh https://github.com/user/skill --deep --json
 
-# Scan a local skill
-./scripts/analyze.sh ~/.pi/skills/my-skill
+# Scan a local skill or repo
+./scripts/analyze.sh /path/to/my-skill
 ```
 
 ---
@@ -103,10 +104,11 @@ gh repo clone ThumbsUpP/security-analyzer ~/.pi/skills/security-analyzer
 
 ---
 
-## 🧪 Tested On
+## 🧪 Requirements
 
-- pi (Termux / Android)
-- Any Unix-like environment with `bash`, `grep`, `find`, `mktemp`
+- `bash`, `grep`, `find`, `mktemp`, `curl` or `wget`
+- `git` (for cloning remote repositories)
+- Any Unix-like environment (Linux, macOS, Termux / Android, WSL)
 
 Optional but recommended:
 - [`shellcheck`](https://github.com/koalaman/shellcheck) — for static shell script analysis
